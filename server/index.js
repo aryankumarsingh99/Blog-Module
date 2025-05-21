@@ -11,7 +11,12 @@ dotenv.config();
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({
+  origin: 'https://blog-module-82kx.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true, // if you're using cookies or authorization headers
+}));
+
 
 // Parse incoming JSON requests
 app.use(express.json());
