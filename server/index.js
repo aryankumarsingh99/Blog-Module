@@ -16,10 +16,17 @@ app.use(cors());
 // Parse incoming JSON requests
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.log(err));
+
+const MONGO_URI =  process.env.MONGO_URI  
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("Connected to MongoDB Atlas!"))
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1); // Optional: exit if cannot connect
+  });
 
 // API routes
 app.use('/api/auth', authRoutes);
