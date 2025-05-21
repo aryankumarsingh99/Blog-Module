@@ -4,7 +4,7 @@ import ProfileHeader from "./ProfileHeader";
 import BlogForm from "./BlogForm";
 import BlogList from "./BlogList";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://blog-module-1.onrender.com";
 const AUTO_SAVE_INTERVAL = 30000;
 const AUTO_SAVE_DELAY = 5000;
 
